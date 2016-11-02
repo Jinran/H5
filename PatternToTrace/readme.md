@@ -17,7 +17,7 @@
                 background-color: #FFFFFF
             }
         </style>
-        <script src="./McsManager/app/utils/PatternToTrace.js" type="text/javascript"></script>
+        <script src="./PatternToTrace.js" type="text/javascript"></script>
     </head>
     <body>
         <canvas id="ptt" width="400" height="400"></canvas>
