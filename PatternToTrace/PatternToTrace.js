@@ -12,6 +12,21 @@ function gesture(itemID, callback){
     var R = 10;
     var top = c.getBoundingClientRect().top;
     var left = c.getBoundingClientRect().left;
+    //在某些移动框架中由于动画原因，会造成页面显示部分并非实际页面问题
+    var actualTop = c.offsetTop;
+    var currentTop = c.offsetParent;
+    while (currentTop !== null){
+        actualTop += currentTop.offsetTop;
+        currentTop = currentTop.offsetParent;
+    }
+    var actualLeft = c.offsetLeft;
+    var currentLeft = c.offsetParent;
+    while (currentLeft !== null) {
+        actualLeft += currentLeft.offsetLeft;
+        currentLeft = currentLeft.offsetParent;
+    }
+    top = actualTop;
+    left = actualLeft;
     var callback = callback || function(){};
     var pointArr = [];
     var restPointArr = [];
